@@ -70,14 +70,14 @@ export async function createUserWithTemporaryPassword(userData: CreateUserData):
 /**
  * Envia email com senha temporária
  */
-async function sendTemporaryPasswordEmail(email: string, password: string, _displayName: string): Promise<void> {
+async function sendTemporaryPasswordEmail(email: string, password: string, displayName: string): Promise<void> {
   try {
     // Usar Firebase Auth para enviar email de reset (simula envio de senha temporária)
     await sendPasswordResetEmail(auth, email);
     
     // Em produção, você pode usar Firebase Functions ou um serviço de email
     // para enviar um email personalizado com a senha temporária
-    console.log(`Email enviado para ${email} com senha temporária: ${password}`);
+    console.log(`Email enviado para ${email} (${displayName}) com senha temporária: ${password}`);
     
     // TODO: Implementar envio real de email com senha temporária
     // Pode usar Firebase Functions + SendGrid, Mailgun, etc.

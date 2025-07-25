@@ -164,7 +164,7 @@ export function ColaboradorList({ onEdit, onView, onDelete }: ColaboradorListPro
   // Carregar colaboradores apenas uma vez na montagem do componente
   useEffect(() => {
     loadColaboradores();
-  }, []); // Removido loadColaboradores das dependências para evitar loop infinito
+  }, [loadColaboradores]); // Adicionado loadColaboradores nas dependências
 
   // Filtrar colaboradores localmente
   const filteredColaboradores = colaboradores
