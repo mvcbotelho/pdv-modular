@@ -38,33 +38,46 @@ src/
    pnpm install
    ```
 
-2. **Executar em desenvolvimento:**
+2. **Configurar variáveis de ambiente:**
+   ```bash
+   cp .env.example .env.local
+   ```
+   Edite o arquivo `.env.local` com suas credenciais do Firebase.
+
+3. **Executar em desenvolvimento:**
    ```bash
    pnpm dev
    ```
 
-3. **Build para produção:**
+4. **Build para produção:**
    ```bash
    pnpm build
    ```
 
-4. **Preview da build:**
+5. **Preview da build:**
    ```bash
    pnpm preview
    ```
 
 ## 🔧 Configuração do Firebase
 
-Certifique-se de configurar as variáveis do Firebase no arquivo `src/config/firebase.ts`:
+1. **Crie um projeto no Firebase Console**
+2. **Copie o arquivo de exemplo:**
+   ```bash
+   cp .env.example .env.local
+   ```
+3. **Configure as variáveis no arquivo `.env.local`:**
+   ```env
+   VITE_FIREBASE_API_KEY=sua_api_key
+   VITE_FIREBASE_AUTH_DOMAIN=seu_projeto.firebaseapp.com
+   VITE_FIREBASE_PROJECT_ID=seu_projeto_id
+   VITE_FIREBASE_STORAGE_BUCKET=seu_projeto.firebasestorage.app
+   VITE_FIREBASE_MESSAGING_SENDER_ID=seu_sender_id
+   VITE_FIREBASE_APP_ID=seu_app_id
+   VITE_FIREBASE_MEASUREMENT_ID=seu_measurement_id
+   ```
 
-```typescript
-const firebaseConfig = {
-  apiKey: "sua-api-key",
-  authDomain: "seu-projeto.firebaseapp.com",
-  projectId: "seu-projeto",
-  // ... outras configurações
-};
-```
+**⚠️ IMPORTANTE:** Nunca commite o arquivo `.env.local` no repositório!
 
 ## 📱 Funcionalidades
 
