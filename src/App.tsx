@@ -117,6 +117,8 @@ function App() {
                 }
               />
               
+
+              
               {/* Fallback para rotas não encontradas */}
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>

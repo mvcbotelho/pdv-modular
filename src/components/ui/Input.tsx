@@ -2,7 +2,7 @@ import { styled } from "@/styles/stitches.config";
 import type { InputHTMLAttributes, ReactNode } from "react";
 
 const InputWrapper = styled("div", {
-  marginBottom: "1.5rem",
+  marginBottom: "1rem",
 });
 
 const InputContainer = styled("div", {
@@ -15,15 +15,22 @@ const StyledInput = styled("input", {
   width: "100%",
   padding: "0.75rem 1rem",
   borderRadius: 8,
-  border: "none",
-  background: "var(--background-secondary)",
+  border: "1px solid var(--border)",
+  background: "var(--background)",
   color: "var(--text-primary)",
   fontSize: "0.9rem",
   outline: "none",
   transition: "all 0.3s ease",
 
+  "&:hover": {
+    borderColor: "var(--primary)",
+    background: "var(--background-secondary)",
+  },
+
   "&:focus": {
+    borderColor: "var(--primary)",
     boxShadow: "0 0 0 2px var(--primary)",
+    background: "var(--background-secondary)",
   },
 
   "&::placeholder": {
@@ -62,9 +69,10 @@ const StyledInput = styled("input", {
 const Label = styled("label", {
   fontSize: "0.875rem",
   display: "block",
-  marginBottom: "0.25rem",
+  marginBottom: "0.5rem",
   color: "var(--text-primary)",
-  fontWeight: "500",
+  fontWeight: "600",
+  letterSpacing: "0.025em",
 });
 
 const IconWrapper = styled("div", {

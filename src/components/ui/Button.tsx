@@ -87,6 +87,79 @@ const StyledButton = styled("button", {
           transform: "translateY(0)",
         },
       },
+      cancel: {
+        background: "#ef4444",
+        color: "#fff",
+        border: "1px solid #ef4444",
+        "&:hover:not(:disabled)": {
+          backgroundColor: "#dc2626",
+          transform: "translateY(-1px)",
+          boxShadow: "0 4px 12px rgba(239, 68, 68, 0.3)",
+        },
+        "&:active:not(:disabled)": {
+          transform: "translateY(0)",
+        },
+      },
+      edit: {
+        background: "#10b981",
+        color: "#fff",
+        border: "1px solid #10b981",
+        "&:hover:not(:disabled)": {
+          backgroundColor: "#059669",
+          transform: "translateY(-1px)",
+          boxShadow: "0 4px 12px rgba(16, 185, 129, 0.3)",
+        },
+        "&:active:not(:disabled)": {
+          transform: "translateY(0)",
+        },
+      },
+      permissions: {
+        background: "#3b82f6",
+        color: "#fff",
+        border: "1px solid #3b82f6",
+        "&:hover:not(:disabled)": {
+          backgroundColor: "#2563eb",
+          transform: "translateY(-1px)",
+          boxShadow: "0 4px 12px rgba(59, 130, 246, 0.3)",
+        },
+        "&:active:not(:disabled)": {
+          transform: "translateY(0)",
+        },
+      },
+      fixed: {
+        background: "linear-gradient(to right, #8b5cf6, #3b82f6)",
+        color: "#fff",
+        width: "auto",
+        minWidth: "fit-content",
+        "&:hover:not(:disabled)": {
+          opacity: 0.9,
+          transform: "translateY(-1px)",
+          boxShadow: "0 4px 12px rgba(139, 92, 246, 0.3)",
+        },
+        "&:active:not(:disabled)": {
+          transform: "translateY(0)",
+        },
+      },
+      filter: {
+        padding: "0.625rem 1rem",
+        fontSize: "0.875rem",
+        fontWeight: "500",
+        minWidth: "auto",
+        width: "auto",
+        height: "40px",
+        borderRadius: "6px",
+        border: "1px solid #d1d5db",
+        backgroundColor: "#fff",
+        color: "#111827",
+        "&:hover:not(:disabled)": {
+          backgroundColor: "#f3f4f6",
+          transform: "translateY(-1px)",
+          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+        },
+        "&:active:not(:disabled)": {
+          transform: "translateY(0)",
+        },
+      },
     },
     size: {
       sm: {
@@ -136,13 +209,14 @@ const StyledButton = styled("button", {
 
 interface ButtonProps {
   children: ReactNode;
-  variant?: "primary" | "secondary" | "ghost" | "success" | "error";
+  variant?: "primary" | "secondary" | "ghost" | "success" | "error" | "cancel" | "edit" | "permissions" | "fixed" | "filter";
   size?: "sm" | "md" | "lg";
   onClick?: () => void;
   type?: "button" | "submit" | "reset";
   disabled?: boolean;
   loading?: boolean;
   icon?: ReactNode;
+  style?: React.CSSProperties;
 }
 
 export function Button({
@@ -154,6 +228,7 @@ export function Button({
   disabled = false,
   loading = false,
   icon,
+  style,
 }: ButtonProps) {
   return (
     <StyledButton
@@ -163,6 +238,7 @@ export function Button({
       type={type}
       disabled={disabled || loading}
       loading={loading}
+      style={style}
     >
       {!loading && icon}
       {children}
