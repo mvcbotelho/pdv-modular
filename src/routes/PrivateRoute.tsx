@@ -1,11 +1,20 @@
 // src/routes/PrivateRoute.tsx
 import { Navigate } from "react-router-dom";
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/hooks/useAuth";
+import { LoadingSpinner } from "@/components/ui";
 
-export function PrivateRoute({ children }: { children: JSX.Element }) {
+export function PrivateRoute({ children }: { children: React.ReactElement }) {
   const { user, loading } = useAuth();
 
-  if (loading) return <p>Carregando...</p>;
+  if (loading) {
+    return (
+      <LoadingSpinner 
+        fullScreen 
+        text="Verificando autenticação..." 
+        size="lg"
+      />
+    );
+  }
 
-  return user ? children : <Navigate to="/" />;
+  return user ? children : <Navigate to="/" replace />;
 }

@@ -7,10 +7,10 @@ export function Dashboard() {
       <TypographyText size="lg">
         Bem-vindo ao Dashboard 🎉
       </TypographyText>
-      <TypographyText style={{ marginTop: "1rem", color: "var(--text-secondary)" }}>
+      <TypographyText>
         O tema escuro é o padrão, mas você pode alternar usando o toggle no header!
       </TypographyText>
-      <TypographyText style={{ marginTop: "1rem", color: "var(--text-secondary)" }}>
+      <TypographyText>
         Use o menu lateral para navegar entre as diferentes seções do sistema.
       </TypographyText>
     </DashboardLayout>

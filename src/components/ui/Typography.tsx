@@ -1,5 +1,5 @@
 import { styled } from "@/styles/stitches.config";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 const Title = styled("h1", {
   fontSize: "1.5rem",

@@ -1,6 +1,6 @@
 import { styled } from "@/styles/stitches.config";
 import { FiSun, FiMoon } from "react-icons/fi";
-import { useTheme } from "@/context/ThemeContext";
+import { useTheme } from "@/hooks/useTheme";
 
 const ToggleContainer = styled("button", {
   position: "relative",

@@ -95,7 +95,7 @@ export function ForgotPassword() {
           </div>
 
           <div style={{ marginTop: "3rem" }}>
-            <Button asChild>
+            <Button>
               <Link to="/">Voltar ao Login</Link>
             </Button>
           </div>

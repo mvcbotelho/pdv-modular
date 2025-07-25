@@ -1,5 +1,5 @@
 import { styled } from "@/styles/stitches.config";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import { ThemeToggle } from "@/components/ui";
 import { FiMenu } from "react-icons/fi";
 

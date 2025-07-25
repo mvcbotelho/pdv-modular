@@ -1,96 +1,82 @@
 import { styled, keyframes } from "@/styles/stitches.config";
+import type { ReactNode } from "react";
 
 const spin = keyframes({
-  "0%": {
-    transform: "rotate(0deg)",
-  },
-  "100%": {
-    transform: "rotate(360deg)",
-  },
+  "0%": { transform: "rotate(0deg)" },
+  "100%": { transform: "rotate(360deg)" },
 });
 
 const SpinnerContainer = styled("div", {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  width: "100%",
-  height: "100%",
-});
-
-const Spinner = styled("div", {
-  width: "24px",
-  height: "24px",
-  border: "2px solid #1f2937",
-  borderTop: "2px solid #6366f1",
-  borderRadius: "50%",
-  animation: `${spin} 1s linear infinite`,
+  gap: "0.5rem",
+  padding: "1rem",
 
   variants: {
     size: {
       sm: {
-        width: "16px",
-        height: "16px",
-        borderWidth: "2px",
+        fontSize: "0.875rem",
       },
       md: {
-        width: "24px",
-        height: "24px",
-        borderWidth: "2px",
+        fontSize: "1rem",
       },
       lg: {
-        width: "32px",
-        height: "32px",
-        borderWidth: "3px",
+        fontSize: "1.25rem",
       },
     },
-    color: {
-      primary: {
-        borderTopColor: "#6366f1",
-      },
-      success: {
-        borderTopColor: "#10b981",
-      },
-      error: {
-        borderTopColor: "#ef4444",
-      },
-      white: {
-        borderTopColor: "#e5e7eb",
+    fullScreen: {
+      true: {
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: "rgba(0, 0, 0, 0.5)",
+        zIndex: 1000,
       },
     },
   },
 
   defaultVariants: {
     size: "md",
-    color: "primary",
+    fullScreen: false,
   },
 });
 
+const Spinner = styled("div", {
+  width: "1em",
+  height: "1em",
+  border: "2px solid transparent",
+  borderTop: "2px solid currentColor",
+  borderRadius: "50%",
+  animation: `${spin} 1s linear infinite`,
+  color: "var(--primary)",
+});
+
 const LoadingText = styled("span", {
-  marginLeft: "0.75rem",
-  fontSize: "0.875rem",
-  color: "#9ca3af",
+  color: "var(--text-secondary)",
   fontWeight: "500",
 });
 
 interface LoadingSpinnerProps {
   size?: "sm" | "md" | "lg";
-  color?: "primary" | "success" | "error" | "white";
   text?: string;
   fullScreen?: boolean;
+  children?: ReactNode;
 }
 
-export function LoadingSpinner({
-  size = "md",
-  color = "primary",
-  text,
+export function LoadingSpinner({ 
+  size = "md", 
+  text = "Carregando...", 
   fullScreen = false,
+  children 
 }: LoadingSpinnerProps) {
-  const Container = fullScreen ? SpinnerContainer : "div";
-
   return (
-    <Container>
-      <Spinner size={size} color={color} />
+    <SpinnerContainer size={size} fullScreen={fullScreen}>
+      <Spinner />
       {text && <LoadingText>{text}</LoadingText>}
-    </Container>
+      {children}
+    </SpinnerContainer>
   );
 } 

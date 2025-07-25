@@ -1,5 +1,5 @@
 import { styled } from "@/styles/stitches.config";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 const StyledCard = styled("div", {
   background: "var(--background-secondary)",

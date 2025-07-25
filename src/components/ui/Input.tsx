@@ -1,5 +1,5 @@
 import { styled } from "@/styles/stitches.config";
-import { InputHTMLAttributes, ReactNode } from "react";
+import type { InputHTMLAttributes, ReactNode } from "react";
 
 const InputWrapper = styled("div", {
   marginBottom: "1.5rem",
