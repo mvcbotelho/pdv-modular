@@ -14,16 +14,18 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
-// Debug: Verificar se as variáveis estão carregadas
-console.log('Firebase Config:', {
-  apiKey: firebaseConfig.apiKey ? '✅ Configurado' : '❌ Não configurado',
-  authDomain: firebaseConfig.authDomain ? '✅ Configurado' : '❌ Não configurado',
-  projectId: firebaseConfig.projectId ? '✅ Configurado' : '❌ Não configurado',
-  storageBucket: firebaseConfig.storageBucket ? '✅ Configurado' : '❌ Não configurado',
-  messagingSenderId: firebaseConfig.messagingSenderId ? '✅ Configurado' : '❌ Não configurado',
-  appId: firebaseConfig.appId ? '✅ Configurado' : '❌ Não configurado',
-  measurementId: firebaseConfig.measurementId ? '✅ Configurado' : '❌ Não configurado',
-});
+// Debug: Verificar se as variáveis estão carregadas (apenas em desenvolvimento)
+if (import.meta.env.DEV) {
+  console.log('Firebase Config:', {
+    apiKey: firebaseConfig.apiKey ? '✅ Configurado' : '❌ Não configurado',
+    authDomain: firebaseConfig.authDomain ? '✅ Configurado' : '❌ Não configurado',
+    projectId: firebaseConfig.projectId ? '✅ Configurado' : '❌ Não configurado',
+    storageBucket: firebaseConfig.storageBucket ? '✅ Configurado' : '❌ Não configurado',
+    messagingSenderId: firebaseConfig.messagingSenderId ? '✅ Configurado' : '❌ Não configurado',
+    appId: firebaseConfig.appId ? '✅ Configurado' : '❌ Não configurado',
+    measurementId: firebaseConfig.measurementId ? '✅ Configurado' : '❌ Não configurado',
+  });
+}
 
 // Inicializar Firebase
 const app = initializeApp(firebaseConfig);

@@ -31,9 +31,9 @@ setGlobalOptions({ maxInstances: 10 });
 // Inicializar Firebase Admin
 admin.initializeApp();
 
-// Configurar SendGrid
-const SENDGRID_API_KEY = "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";
-const SENDGRID_FROM = "marcus.itec@gmail.com";
+// Configurar SendGrid usando variáveis de ambiente
+const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY || "sua_api_key_aqui";
+const SENDGRID_FROM = process.env.SENDGRID_FROM || "noreply@seudominio.com";
 
 sgMail.setApiKey(SENDGRID_API_KEY);
 
