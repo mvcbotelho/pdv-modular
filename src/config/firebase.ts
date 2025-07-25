@@ -1,5 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
+import { getFunctions } from 'firebase/functions';
 
 // Configuração do Firebase - Use variáveis de ambiente
 const firebaseConfig = {
@@ -12,10 +14,27 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
+// Debug: Verificar se as variáveis estão carregadas
+console.log('Firebase Config:', {
+  apiKey: firebaseConfig.apiKey ? '✅ Configurado' : '❌ Não configurado',
+  authDomain: firebaseConfig.authDomain ? '✅ Configurado' : '❌ Não configurado',
+  projectId: firebaseConfig.projectId ? '✅ Configurado' : '❌ Não configurado',
+  storageBucket: firebaseConfig.storageBucket ? '✅ Configurado' : '❌ Não configurado',
+  messagingSenderId: firebaseConfig.messagingSenderId ? '✅ Configurado' : '❌ Não configurado',
+  appId: firebaseConfig.appId ? '✅ Configurado' : '❌ Não configurado',
+  measurementId: firebaseConfig.measurementId ? '✅ Configurado' : '❌ Não configurado',
+});
+
 // Inicializar Firebase
 const app = initializeApp(firebaseConfig);
 
 // Inicializar Auth
 export const auth = getAuth(app);
+
+// Inicializar Firestore
+export const db = getFirestore(app);
+
+// Inicializar Functions
+export const functions = getFunctions(app);
 
 export default app; 
