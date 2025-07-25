@@ -1,5 +1,7 @@
 export { Button } from './Button';
 export { Input } from './Input';
+export { Select } from './Select';
+export { Textarea } from './Textarea';
 export { Card } from './Card';
 export { Divider } from './Divider';
 export { TypographyTitle, TypographySubtitle, TypographyText } from './Typography';
