@@ -62,12 +62,14 @@ src/
 ## 🔧 Configuração do Firebase
 
 1. **Crie um projeto no Firebase Console**
-2. **Copie o arquivo de exemplo:**
+2. **Configure o Firebase Functions:**
    ```bash
-   cp .env.example .env.local
+   firebase login
+   firebase init functions
    ```
-3. **Configure as variáveis no arquivo `.env.local`:**
-   ```env
+3. **Configure as variáveis de ambiente:**
+   ```bash
+   # Frontend (.env.local)
    VITE_FIREBASE_API_KEY=sua_api_key
    VITE_FIREBASE_AUTH_DOMAIN=seu_projeto.firebaseapp.com
    VITE_FIREBASE_PROJECT_ID=seu_projeto_id
@@ -75,9 +77,13 @@ src/
    VITE_FIREBASE_MESSAGING_SENDER_ID=seu_sender_id
    VITE_FIREBASE_APP_ID=seu_app_id
    VITE_FIREBASE_MEASUREMENT_ID=seu_measurement_id
+
+   # Firebase Functions (firebase functions:config:set)
+   firebase functions:config:set sendgrid.key="SUA_SENDGRID_API_KEY"
+   firebase functions:config:set sendgrid.from="seu_email@dominio.com"
    ```
 
-**⚠️ IMPORTANTE:** Nunca commite o arquivo `.env.local` no repositório!
+**⚠️ IMPORTANTE:** Nunca commite arquivos `.env` no repositório!
 
 ## 📱 Funcionalidades
 
